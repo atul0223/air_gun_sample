@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEERUT AIRGUN | Precision PCP Rifles, Magazines & Ballistics Showcase</title>
+  <meta name="description" content="Official showcase for Meerut Airgun (@meerutairgun) - High-performance PCP air rifles, 10-shot rotary magazines, match .177 pellets, and precision target airguns based in Meerut, UP.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              primary: '#ff6b00',
+              glow: 'rgba(255, 107, 0, 0.4)',
+              gold: '#e5a93c'
+            },
+            tritium: '#00ff88',
+            gunmetal: '#141720',
+            carbon: '#0a0c10'
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-[#060709] text-zinc-100 antialiased selection:bg-[#ff6b00] selection:text-black">
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Tactical HUD Cursor -->
+  <div id="crosshairHud" class="crosshair-hud"></div>
+
+  <!-- FLOATING ISLAND NAVIGATION -->
+  <header class="fixed top-6 left-0 right-0 z-50 px-4">
+    <nav class="max-w-6xl mx-auto nav-island rounded-full px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-300">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-primary to-amber-gold flex items-center justify-center shadow-[0_0_15px_rgba(255,107,0,0.5)] transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="22" y1="12" x2="18" y2="12"/>
+            <line x1="6" y1="12" x2="2" y2="12"/>
+            <line x1="12" y1="6" x2="12" y2="2"/>
+            <line x1="12" y1="22" x2="12" y2="18"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-base tracking-wider text-white flex items-center gap-1.5">
+            MEERUT AIRGUN
+          </span>
+          <span class="block text-[9px] font-mono tracking-widest text-zinc-400">@MEERUTAIRGUN • EST. 2018</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-zinc-300">
+        <a href="#armory" class="hover:text-amber-primary transition-colors">Armory</a>
+        <a href="#simulator" class="hover:text-amber-primary transition-colors">Magazine Lab</a>
+        <a href="#ballistics" class="hover:text-amber-primary transition-colors">Ballistics Sim</a>
+        <a href="#anatomy" class="hover:text-amber-primary transition-colors">Anatomy</a>
+        <a href="#instagram" class="hover:text-amber-primary transition-colors">Instagram</a>
+      </div>
+
+      <!-- Controls & Quick Order CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Live Status Beacon -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-white/5 text-[10px] font-mono">
+          <span class="beacon-live"></span>
+          <span class="text-zinc-300 font-medium tracking-wider">MEERUT DISPATCH READY</span>
+        </div>
+
+        <!-- Sound Toggle -->
+        <button id="btnSoundToggle" class="px-3 py-1.5 rounded-full bg-zinc-900/80 border border-tritium/40 text-tritium text-[11px] font-mono flex items-center gap-1.5 transition-all hover:bg-zinc-800" title="Toggle Mechanical Audio Effects">
+          <svg id="soundToggleIcon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <span id="soundToggleLabel">SOUND ON</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA -->
+        <a href="https://wa.me/918439543244?text=Hello%20Meerut%20Airgun!%20I%20am%20interested%20in%20inquiring%20about%20your%20PCP%20air%20rifles%20and%20accessories." target="_blank" rel="noopener" class="btn-nested bg-gradient-to-r from-amber-primary to-[#ff8533] text-black hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] text-xs font-bold">
+          <span>INQUIRE ORDER</span>
+          <span class="icon-circle bg-black/20 text-black">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M7 17l9.2-9.2M17 17V8H8"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTAINER (Overflow-X Hidden to prevent scroll bugs) -->
+  <main class="overflow-x-hidden w-full max-w-full pt-32">
+
+    <!-- 1. HERO SECTION (CINEMATIC CENTER - 2-LINE MAX H1) -->
+    <section id="hero" class="relative min-h-[92vh] flex flex-col items-center justify-center px-4 sm:px-6 py-16 text-center">
+      
+      <!-- Ambient Glow Orbs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-primary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      <div class="absolute top-1/2 left-1/4 w-[400px] h-[250px] bg-tritium/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+      <!-- Eyebrow Pill -->
+      <div class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-primary/10 border border-amber-primary/30 text-amber-primary text-[11px] font-mono tracking-widest uppercase mb-8">
+        <span class="w-2 h-2 rounded-full bg-amber-primary animate-ping"></span>
+        <span>HIGH-PRESSURE PNEUMATIC ENGINEERING • MEERUT, UP</span>
+      </div>
+
+      <!-- 2-Line Iron Rule H1 -->
+      <h1 class="hero-title max-w-6xl font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] text-white uppercase mb-8">
+        BALLISTIC PERFECTION <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-primary via-amber-gold to-white">
+          IN EVERY GRAIN.
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle max-w-3xl text-zinc-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed mb-10">
+        Hand-calibrated Pre-Charged Pneumatic (PCP) rifles, high-torque rotary magazines, and Olympic match pellets from India’s premier shooting craft hub in Meerut. 100% legal .177 caliber sporting platforms with zero license required.
+      </p>
+
+      <!-- Two High-Contrast CTAs -->
+      <div class="hero-ctas flex flex-wrap items-center justify-center gap-4 mb-16">
+        <a href="#armory" class="btn-nested bg-amber-primary hover:bg-[#ff8533] text-black font-bold text-sm shadow-[0_10px_25px_-5px_rgba(255,107,0,0.5)]">
+          <span>EXPLORE AIR RIFLES & PISTOLS</span>
+          <span class="icon-circle bg-black/20 text-black">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+
+        <a href="#simulator" class="btn-nested bg-zinc-900 border border-white/10 hover:border-amber-primary/40 text-white font-medium text-sm">
+          <span>INTERACTIVE ROTARY CHAMBER</span>
+          <span class="icon-circle bg-white/10 text-amber-primary">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="3" x2="12" y2="7"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hero Double-Bezel Showcase Display Card -->
+      <div class="hero-weapon-card w-full max-w-5xl mx-auto double-bezel">
+        <div class="double-bezel-inner p-6 sm:p-10 relative overflow-hidden">
+          
+          <!-- Tactical HUD Header Inside Card -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10 text-xs font-mono">
+            <div class="flex items-center gap-3">
+              <span class="text-amber-primary font-bold">MODEL 01 //</span>
+              <span class="text-white font-semibold">MEERUT APEX PCP CARBON SNIPER</span>
+              <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 text-[10px]">.177 CAL / 4.5MM</span>
+            </div>
+            <div class="flex items-center gap-6 text-zinc-400">
+              <span>PRESSURE: <strong class="text-tritium font-mono">300 BAR HPA</strong></span>
+              <span>BARREL: <strong class="text-white font-mono">550MM SHROUDED</strong></span>
+            </div>
+          </div>
+
+          <!-- Weapon Image Hero Display -->
+          <div class="relative my-8 rounded-2xl overflow-hidden bg-black/40 border border-white/5 group">
+            <img src="assets/hero-airgun.jpg" alt="Meerut Airgun Apex PCP Tactical Rifle with Scope" class="w-full h-auto max-h-[520px] object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            
+            <!-- Live Crosshair HUD Overlay Elements -->
+            <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <div class="w-24 h-24 border border-amber-primary/30 rounded-full flex items-center justify-center animate-pulse">
+                <div class="w-2 h-2 bg-amber-primary rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Floating Telemetry Strip -->
+            <div class="absolute bottom-4 left-4 right-4 bg-zinc-950/85 backdrop-blur-md border border-white/10 rounded-xl p-4 flex flex-wrap items-center justify-around gap-4 text-center">
+              <div>
+                <span class="block text-[10px] font-mono text-zinc-400">MUZZLE VELOCITY</span>
+                <span class="font-mono text-xl sm:text-2xl font-bold text-white">1,020 <span class="text-xs text-amber-primary">FPS</span></span>
+              </div>
+              <div class="w-px h-8 bg-white/10 hidden sm:block"></div>
+              <div>
+                <span class="block text-[10px] font-mono text-zinc-400">MUZZLE ENERGY</span>
+                <span class="font-mono text-xl sm:text-2xl font-bold text-white">42.5 <span class="text-xs text-tritium">JOULES</span></span>
+              </div>
+              <div class="w-px h-8 bg-white/10 hidden sm:block"></div>
+              <div>
+                <span class="block text-[10px] font-mono text-zinc-400">MAGAZINE CAPACITY</span>
+                <span class="font-mono text-xl sm:text-2xl font-bold text-white">10 <span class="text-xs text-amber-primary">SHOT DRUM</span></span>
+              </div>
+              <div class="w-px h-8 bg-white/10 hidden sm:block"></div>
+              <div>
+                <span class="block text-[10px] font-mono text-zinc-400">SHOTS PER CHARGE</span>
+                <span class="font-mono text-xl sm:text-2xl font-bold text-white">85+ <span class="text-xs text-zinc-400">CONSISTENT</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Callout -->
+          <div class="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400 pt-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-tritium"></span>
+              <span>COMPLIANT WITH INDIAN ARMS RULES (NO POLICE LICENSE REQUIRED)</span>
+            </div>
+            <a href="https://wa.me/918439543244?text=Hello%20Meerut%20Airgun,%20I%20am%20interested%20in%20booking%20the%20Apex%20PCP%20Carbon%20Air%20Rifle." target="_blank" class="text-amber-primary hover:underline font-bold flex items-center gap-1">
+              BOOK VIA WHATSAPP (+91 8439543244) ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GAPLESS BENTO GRID: MEERUT CRAFT & HARDWARE METRICS -->
+    <section class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="mb-14 text-center sm:text-left">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-amber-primary font-bold">MEERUT INDUSTRIAL PRECISION</span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight mt-2">
+          ENGINEERED FOR SUPREME KINETIC CONSISTENCY
+        </h2>
+      </div>
+
+      <!-- Mathematically Perfect Gapless Bento Grid with grid-flow-dense -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 grid-flow-dense">
+        
+        <!-- Bento 1: Rotary Magazine Close-Up (Col 7, Row 2) -->
+        <div class="md:col-span-7 double-bezel">
+          <div class="double-bezel-inner p-8 flex flex-col justify-between h-full bg-[#0e1117] relative overflow-hidden">
+            <div class="relative z-10">
+              <span class="px-2.5 py-1 rounded bg-amber-primary/10 border border-amber-primary/30 text-amber-primary text-[10px] font-mono tracking-wider">
+                ROTARY FEED MECHANISM
+              </span>
+              <h3 class="font-display font-bold text-2xl text-white mt-4 mb-2">
+                10-SHOT HIGH-TENSION CAROUSEL
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed max-w-md">
+                CNC-machined aluminum housing with ultra-smooth acrylic indexing face. Internal torsion spring automatically advances the next .177 round into the breech with zero jam probability.
+              </p>
+            </div>
+            <div class="mt-8 rounded-xl overflow-hidden border border-white/5 relative group">
+              <img src="assets/rotary-mag.jpg" alt="Meerut Airgun 10-shot Rotary Magazine" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                <span class="text-xs font-mono text-zinc-300">CALIBER: .177 (4.5MM) • SPRING LOADED RATVCHET</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: Match Grade Ammunition (Col 5) -->
+        <div class="md:col-span-5 double-bezel">
+          <div class="double-bezel-inner p-8 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <span class="px-2.5 py-1 rounded bg-tritium/10 border border-tritium/30 text-tritium text-[10px] font-mono tracking-wider">
+                MATCH GRADE AMMUNITION
+              </span>
+              <h3 class="font-display font-bold text-2xl text-white mt-4 mb-2">
+                SUB-MOA LEAD PELLETS & SLUGS
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Diabolo aerodynamics engineered for long-range ballistic stability. From 8.2gr flat-head paper cutters to 13.5gr heavy hollow-point slugs for maximum terminal energy.
+              </p>
+            </div>
+            <div class="mt-6 rounded-xl overflow-hidden border border-white/5">
+              <img src="assets/ammo-pellets.jpg" alt="Match grade airgun pellets" class="w-full h-48 object-cover">
+            </div>
+            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+              <span class="text-zinc-400">WEIGHT TOLERANCE</span>
+              <span class="text-tritium font-bold">&plusmn; 0.02 GRAINS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 3: Tactical CO2 Pistol (Col 5) -->
+        <div class="md:col-span-5 double-bezel">
+          <div class="double-bezel-inner p-8 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 text-[10px] font-mono tracking-wider">
+                BLOWBACK HANDGUNS
+              </span>
+              <h3 class="font-display font-bold text-2xl text-white mt-4 mb-2">
+                CO2 REPLICA TACTICAL PISTOLS
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Realistic metallic slide cycling, drop-free all-metal magazines, and integrated Picatinny under-rails for laser sights and tactical torches.
+              </p>
+            </div>
+            <div class="my-6 rounded-xl overflow-hidden border border-white/5">
+              <img src="assets/tactical-pistol.jpg" alt="Tactical CO2 Blowback Pistol" class="w-full h-44 object-cover">
+            </div>
+            <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+              <span>ACTION: BLOWBACK</span>
+              <span class="text-amber-primary font-bold">420 FPS (12G CO2)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 4: Pan-India Delivery & Trust (Col 7) -->
+        <div class="md:col-span-7 double-bezel">
+          <div class="double-bezel-inner p-8 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="w-2.5 h-2.5 rounded-full bg-tritium"></span>
+                <span class="text-xs font-mono text-zinc-400 tracking-wider">DIRECT FROM GANGANAGAR, MEERUT</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3">
+                SECURE PAN-INDIA COURIER DISPATCH
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                Every airgun is test-fired for chrony velocity, zeroed on paper target, and securely bubble-wrapped in heavy-duty molded gun cases prior to dispatch. Shipped with full invoice and legal compliance certificate under Indian Arms Rules.
+              </p>
+            </div>
+
+            <!-- 3 Stat Blocks -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center">
+              <div class="p-3 rounded-lg bg-zinc-900/60 border border-white/5">
+                <span class="block font-mono text-xl sm:text-2xl font-bold text-white">5,000+</span>
+                <span class="text-[10px] font-mono text-zinc-400">UNITS DELIVERED</span>
+              </div>
+              <div class="p-3 rounded-lg bg-zinc-900/60 border border-white/5">
+                <span class="block font-mono text-xl sm:text-2xl font-bold text-amber-primary">100%</span>
+                <span class="text-[10px] font-mono text-zinc-400">LEGAL & CERTIFIED</span>
+              </div>
+              <div class="p-3 rounded-lg bg-zinc-900/60 border border-white/5">
+                <span class="block font-mono text-xl sm:text-2xl font-bold text-tritium">4.9/5</span>
+                <span class="text-[10px] font-mono text-zinc-400">CUSTOMER RATING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE ROTARY MAGAZINE & CHAMBER SIMULATOR -->
+    <section id="simulator" class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-amber-primary font-bold">KINETIC WORKBENCH SIMULATOR</span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight mt-2">
+          INTERACTIVE ROTARY MAGAZINE & BOLT ACTION
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-4">
+          Experience the mechanical tactile engineering of our 10-shot .177 rotary drum. Load pellets, index the spring carousel, chamber a round into the breach, and fire test with authentic procedural acoustics.
+        </p>
+      </div>
+
+      <div class="double-bezel">
+        <div class="double-bezel-inner p-6 sm:p-10">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left: Interactive SVG Rotary Drum (Col 5) -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-zinc-950/70 border border-white/5">
+              <span class="text-xs font-mono text-zinc-400 mb-4 tracking-wider">CLICK CHAMBER TO SEAT / EJECT PELLET</span>
+              
+              <!-- SVG Rotary Magazine -->
+              <div class="relative w-[270px] h-[270px] flex items-center justify-center">
+                
+                <!-- SVG Gradient Defs -->
+                <svg width="260" height="260" viewBox="0 0 260 260" class="overflow-visible">
+                  <defs>
+                    <radialGradient id="magHousingGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#1c2230" />
+                      <stop offset="80%" stop-color="#0c0f16" />
+                      <stop offset="100%" stop-color="#05070a" />
+                    </radialGradient>
+                    <radialGradient id="leadPelletGrad" cx="35%" cy="35%" r="65%">
+                      <stop offset="0%" stop-color="#9ca3af" />
+                      <stop offset="50%" stop-color="#4b5563" />
+                      <stop offset="100%" stop-color="#1f2937" />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Outer Magazine Casing -->
+                  <circle cx="130" cy="130" r="126" fill="url(#magHousingGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                  <circle cx="130" cy="130" r="120" fill="none" stroke="rgba(255,107,0,0.2)" stroke-width="1" stroke-dasharray="2,3"/>
+
+                  <!-- Center Torsion Gear Hub -->
+                  <circle cx="130" cy="130" r="44" fill="#131720" stroke="rgba(255,107,0,0.5)" stroke-width="2"/>
+                  <circle cx="130" cy="130" r="18" fill="#e5a93c" stroke="#b45309" stroke-width="1.5"/>
+                  
+                  <!-- Center Caliber Stamping -->
+                  <text x="130" y="112" text-anchor="middle" fill="#9ca3af" font-size="8" font-family="JetBrains Mono" font-weight="bold">MEERUT</text>
+                  <text x="130" y="154" text-anchor="middle" fill="#ff6b00" font-size="9" font-family="JetBrains Mono" font-weight="bold">.177 CAL</text>
+
+                  <!-- Rotating Drum Group (Dynamic Chambers) -->
+                  <g id="magDrumGroup" class="mag-drum">
+                    <g id="magWheelChambers"></g>
+                  </g>
+
+                  <!-- Active Indexer Pointer Marker (Top) -->
+                  <polygon points="130,5 125,18 135,18" fill="#ff6b00" />
+                </svg>
+
+                <!-- Bolt Action Ejection Effect -->
+                <div id="muzzleFlashEffect" class="absolute -right-6 top-1/2 -translate-y-1/2 w-16 h-16 bg-amber-primary rounded-full blur-xl opacity-0 pointer-events-none"></div>
+              </div>
+
+              <!-- Tension Spring Bar -->
+              <div class="w-full mt-6">
+                <div class="flex justify-between text-[11px] font-mono text-zinc-400 mb-1">
+                  <span>INTERNAL SPRING TENSION</span>
+                  <span id="magCountDisplay" class="text-amber-primary font-bold">7/10</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-zinc-800 overflow-hidden">
+                  <div id="magTensionBar" class="h-full bg-gradient-to-r from-amber-primary to-amber-gold w-[70%] transition-all duration-300"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right: Breach, Bolt & Trigger Controls (Col 7) -->
+            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
+              
+              <!-- Breach Chamber Display -->
+              <div class="p-5 rounded-xl bg-zinc-950/80 border border-white/5 flex items-center justify-between">
+                <div>
+                  <span class="block text-[10px] font-mono text-zinc-400 tracking-wider">RIFLE BREECH STATUS</span>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span id="chamberStatusLed" class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <span id="breachStatusText" class="text-xs font-mono text-zinc-500 tracking-wider">BREACH EMPTY (PULL BOLT)</span>
+                  </div>
+                </div>
+
+                <!-- Bolt Handle SVG Graphic -->
+                <div class="relative w-28 h-12 flex items-center justify-end">
+                  <svg id="boltHandleSvg" class="w-24 h-10 transition-transform" viewBox="0 0 100 40">
+                    <!-- Bolt Carrier -->
+                    <rect x="10" y="15" width="70" height="12" rx="3" fill="#374151" stroke="#4b5563"/>
+                    <!-- Bolt Lever Arm -->
+                    <path d="M70 21 L85 8" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Ball Knob -->
+                    <circle cx="87" cy="6" r="6" fill="#ff6b00" stroke="#fff" stroke-width="1"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Action Control Buttons -->
+              <div class="grid grid-cols-2 gap-4">
+                
+                <!-- Button 1: Load Full Magazine -->
+                <button id="btnFillMag" class="p-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-xs font-mono font-semibold text-zinc-200 flex items-center justify-center gap-2 transition-all">
+                  <svg class="w-4 h-4 text-amber-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14"/>
+                  </svg>
+                  <span>LOAD FULL 10 ROUNDS</span>
+                </button>
+
+                <!-- Button 2: Rotate Drum Carousel -->
+                <button id="btnRotateMag" class="p-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-xs font-mono font-semibold text-zinc-200 flex items-center justify-center gap-2 transition-all">
+                  <svg class="w-4 h-4 text-amber-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  <span>ADVANCE CYLINDER</span>
+                </button>
+
+                <!-- Button 3: Cycle Bolt Action -->
+                <button id="btnChamberBolt" class="p-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-white/20 text-xs font-mono font-bold text-white flex items-center justify-center gap-2 transition-all">
+                  <svg class="w-4 h-4 text-tritium" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                  <span>CYCLE BOLT LEVER</span>
+                </button>
+
+                <!-- Button 4: Pull Trigger (FIRE TEST) -->
+                <button id="btnPullTrigger" class="p-3.5 rounded-xl bg-gradient-to-r from-amber-primary to-[#ff8533] hover:shadow-[0_0_20px_rgba(255,107,0,0.5)] text-xs font-mono font-black text-black flex items-center justify-center gap-2 transition-all">
+                  <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <span>PULL TRIGGER (FIRE)</span>
+                </button>
+
+              </div>
+
+              <!-- Ballistic Paper Target Trap -->
+              <div class="p-4 rounded-xl bg-zinc-950 border border-white/5 flex items-center justify-between">
+                <div>
+                  <span class="block text-[10px] font-mono text-zinc-400">10-METER INDOOR TARGET TRAP</span>
+                  <span class="text-xs font-mono text-zinc-200 font-medium">TOTAL SHOTS RECORDED: <strong id="shotsFiredDisplay" class="text-amber-primary">0</strong></span>
+                </div>
+
+                <!-- Paper Target Graphic -->
+                <div class="relative w-14 h-14 rounded-full bg-zinc-100 flex items-center justify-center border-2 border-zinc-400">
+                  <div class="w-10 h-10 rounded-full border border-black flex items-center justify-center">
+                    <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-white"></div>
+                    </div>
+                  </div>
+                  <!-- Shot Impact Bullet Hole -->
+                  <div id="targetPaperImpact" class="absolute w-3 h-3 rounded-full bg-amber-primary border border-black opacity-0"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BALLISTICS LAB & FLIGHT DYNAMICS CANVAS -->
+    <section id="ballistics" class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-tritium font-bold">AERODYNAMIC TRAJECTORY SIMULATION</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight mt-2">
+            BALLISTICS FLIGHT DYNAMICS LAB
+          </h2>
+        </div>
+        <p class="max-w-md text-zinc-400 text-sm">
+          Simulate real-time projectile drop, terminal kinetic velocity, and aerodynamic flight time across various .177 pellet profiles and muzzle velocities.
+        </p>
+      </div>
+
+      <div class="double-bezel">
+        <div class="double-bezel-inner p-6 sm:p-10">
+          
+          <!-- Ammo Selection Strip -->
+          <div class="flex flex-wrap items-center gap-3 pb-8 border-b border-white/10">
+            <span class="text-xs font-mono text-zinc-400 mr-2">SELECT AMMO PROFILE:</span>
+            
+            <button data-ammo-type="wadcutter" class="px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 hover:border-sky-400 text-xs font-mono text-zinc-300 transition-all flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+              <span>WADCUTTER 8.2gr (FLAT TARGET)</span>
+            </button>
+
+            <button data-ammo-type="domed" class="px-4 py-2 rounded-xl bg-amber-primary/10 border border-amber-primary text-xs font-mono text-white transition-all flex items-center gap-2 active-ammo">
+              <span class="w-2 h-2 rounded-full bg-amber-primary"></span>
+              <span>DOMED DIABOLO 10.3gr (AERODYNAMIC)</span>
+            </button>
+
+            <button data-ammo-type="slug" class="px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 hover:border-tritium text-xs font-mono text-zinc-300 transition-all flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-tritium"></span>
+              <span>MATCH LEAD SLUG 13.5gr (HIGH BC)</span>
+            </button>
+          </div>
+
+          <!-- Controls & Sliders Row -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/10">
+            
+            <!-- Slider 1: Muzzle FPS -->
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-2">
+                <span class="text-zinc-400">MUZZLE VELOCITY</span>
+                <span id="displayFpsValue" class="text-amber-primary font-bold">920 FPS</span>
+              </div>
+              <input type="range" id="inputMuzzleFps" min="650" max="1100" value="920" step="10">
+              <div class="flex justify-between text-[10px] font-mono text-zinc-500 mt-1">
+                <span>650 FPS (Club)</span>
+                <span>1,100 FPS (Magnum PCP)</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: Target Distance -->
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-2">
+                <span class="text-zinc-400">TARGET DISTANCE</span>
+                <span id="displayDistanceValue" class="text-white font-bold">50 METERS</span>
+              </div>
+              <input type="range" id="inputDistance" min="10" max="100" value="50" step="5">
+              <div class="flex justify-between text-[10px] font-mono text-zinc-500 mt-1">
+                <span>10m (10m Match)</span>
+                <span>100m (Extreme Range)</span>
+              </div>
+            </div>
+
+            <!-- Slider 3: Crosswind -->
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-2">
+                <span class="text-zinc-400">LATERAL CROSSWIND</span>
+                <span id="displayWindValue" class="text-zinc-300 font-bold">4 MPH</span>
+              </div>
+              <input type="range" id="inputWind" min="0" max="15" value="4" step="1">
+              <div class="flex justify-between text-[10px] font-mono text-zinc-500 mt-1">
+                <span>0 MPH (Dead Calm)</span>
+                <span>15 MPH (Moderate Breeze)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live HTML5 Canvas Chart Plot -->
+          <div class="relative w-full my-6 bg-zinc-950/90 rounded-2xl border border-white/5 p-4 overflow-hidden">
+            <canvas id="ballisticsCanvas" class="w-full h-80 block"></canvas>
+          </div>
+
+          <!-- Telemetry Live Readouts Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-center">
+            <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/5">
+              <span class="block text-[10px] font-mono text-zinc-400">MUZZLE ENERGY</span>
+              <span id="readoutJoules" class="font-mono text-lg font-bold text-amber-primary">28.4 J</span>
+            </div>
+            <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/5">
+              <span class="block text-[10px] font-mono text-zinc-400">FLIGHT DURATION</span>
+              <span id="readoutFlightTime" class="font-mono text-lg font-bold text-white">186 ms</span>
+            </div>
+            <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/5">
+              <span class="block text-[10px] font-mono text-zinc-400">DROP AT TARGET</span>
+              <span id="readoutDrop" class="font-mono text-lg font-bold text-tritium">-14.2 cm (5.6")</span>
+            </div>
+            <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/5">
+              <span class="block text-[10px] font-mono text-zinc-400">IMPACT VELOCITY</span>
+              <span id="readoutTerminalFps" class="font-mono text-lg font-bold text-zinc-200">710 FPS (17.2 J)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WEAPON ANATOMY & BLUEPRINT EXPLORER -->
+    <section id="anatomy" class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-amber-primary font-bold">INTERNAL COMPONENT ARCHITECTURE</span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight mt-2">
+          EXPLORE THE ANATOMY OF A HIGH-END PCP
+        </h2>
+        <p class="text-zinc-400 text-sm mt-3">
+          Click any tactical node to deconstruct the high-pressure fluid dynamics and precision lockwork engineered into every platform.
+        </p>
+      </div>
+
+      <div class="double-bezel">
+        <div class="double-bezel-inner p-6 sm:p-10">
+          
+          <!-- Blueprint Hotspot Interactive Canvas/Image -->
+          <div class="relative w-full rounded-2xl overflow-hidden bg-black/60 border border-white/10 mb-8">
+            <img src="assets/hero-airgun.jpg" alt="Airgun Blueprint Anatomy" class="w-full h-auto max-h-[480px] object-cover opacity-85">
+            
+            <!-- Hotspots Floating Over Key Parts -->
+            
+            <!-- Hotspot 1: Moderator (Front Muzzle) -->
+            <button data-hotspot="moderator" class="absolute top-[38%] left-[12%] group cursor-pointer" title="Integrated Sound Moderator">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">01</span>
+              </div>
+            </button>
+
+            <!-- Hotspot 2: Carbon Fiber Tank (Under Barrel) -->
+            <button data-hotspot="cylinder" class="absolute top-[52%] left-[34%] group cursor-pointer" title="Carbon Fiber Pressure Tank">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">02</span>
+              </div>
+            </button>
+
+            <!-- Hotspot 3: Internal Regulator (Gauge Area) -->
+            <button data-hotspot="regulator" class="absolute top-[50%] left-[54%] group cursor-pointer" title="Match Grade Regulator">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">03</span>
+              </div>
+            </button>
+
+            <!-- Hotspot 4: Sidelever Bolt (Action Area) -->
+            <button data-hotspot="cocking" class="absolute top-[42%] left-[62%] group cursor-pointer" title="Biathlon Side-Lever Action">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">04</span>
+              </div>
+            </button>
+
+            <!-- Hotspot 5: 2-Stage Trigger (Grip Base) -->
+            <button data-hotspot="trigger" class="absolute top-[56%] left-[63%] group cursor-pointer" title="2-Stage Match Trigger">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">05</span>
+              </div>
+            </button>
+
+            <!-- Hotspot 6: Mil-Dot Optical Scope (Top Mount) -->
+            <button data-hotspot="optics" class="absolute top-[22%] left-[55%] group cursor-pointer" title="Tactical Optical Scope">
+              <div class="hotspot-ring w-8 h-8 rounded-full border-2 border-amber-primary bg-amber-primary/20 flex items-center justify-center animate-pulse group-hover:scale-125 transition-transform">
+                <span class="text-[10px] font-mono font-bold text-white">06</span>
+              </div>
+            </button>
+
+          </div>
+
+          <!-- Active Hotspot Readout Card -->
+          <div class="p-6 rounded-2xl bg-zinc-950/80 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-2xl">
+              <div class="flex items-center gap-3 mb-2">
+                <span id="anatomyMetric" class="px-2.5 py-0.5 rounded bg-tritium/10 border border-tritium/30 text-tritium text-[11px] font-mono font-bold tracking-wider">
+                  &lt; 65 dB NOISE LEVEL (WHISPER QUIET)
+                </span>
+              </div>
+              <h3 id="anatomyTitle" class="font-display font-bold text-2xl text-white mb-2">
+                INTEGRATED SOUND MODERATOR & SHROUD
+              </h3>
+              <p id="anatomyDesc" class="text-zinc-400 text-sm leading-relaxed">
+                Precision 4-chamber internal CNC baffle stack decelerates expanding high-pressure air vortices, reducing muzzle blast to an undetectable indoor decibel rating without disturbing pellet stabilization.
+              </p>
+            </div>
+
+            <!-- Quick Inquiry for This Component -->
+            <div class="flex-shrink-0">
+              <a href="https://wa.me/918439543244?text=Hello%20Meerut%20Airgun!%20I%20am%20inquiring%20about%20PCP%20accessories%20and%20suppressors." target="_blank" class="btn-nested bg-zinc-900 border border-white/20 hover:border-amber-primary text-white text-xs font-semibold">
+                <span>INQUIRE PARTS</span>
+                <span class="icon-circle bg-white/10 text-amber-primary">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17l9.2-9.2M17 17V8H8"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ARMORY SHOWCASE & PRODUCT CATALOG -->
+    <section id="armory" class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-amber-primary font-bold">MEERUT INVENTORY SHOWCASE</span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight mt-2">
+            PREMIER SPORTING ARMORY
+          </h2>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-zinc-950 border border-white/10 text-xs font-mono">
+          <button data-catalog-filter="all" class="px-4 py-2 rounded-xl bg-amber-primary text-black font-bold active">ALL HARDWARE</button>
+          <button data-catalog-filter="pcp" class="px-4 py-2 rounded-xl text-zinc-300 hover:text-white font-medium">PCP RIFLES</button>
+          <button data-catalog-filter="pistol" class="px-4 py-2 rounded-xl text-zinc-300 hover:text-white font-medium">CO2 PISTOLS</button>
+          <button data-catalog-filter="mag" class="px-4 py-2 rounded-xl text-zinc-300 hover:text-white font-medium">MAGAZINES & AMMO</button>
+        </div>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Product 1: Meerut Apex PCP Sniper -->
+        <div data-catalog-item data-category="pcp" class="double-bezel group">
+          <div class="double-bezel-inner p-6 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <div class="relative rounded-xl overflow-hidden mb-5 bg-black/40 border border-white/5">
+                <img src="assets/hero-airgun.jpg" alt="Meerut Apex PCP Sniper" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-tritium text-[10px] font-mono font-bold">
+                  FLAGSHIP PCP
+                </span>
+              </div>
+              <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">PRE-CHARGED PNEUMATIC</span>
+              <h3 class="font-display font-bold text-xl text-white mt-1 mb-2">MEERUT APEX PCP SNIPER</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                500cc 300-Bar carbon fiber cylinder, shrouded Lothar Walther rifling, 10-shot magazine, side-lever biathlon action.
+              </p>
+              
+              <!-- Specs pills -->
+              <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-zinc-300 mb-6">
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">CAL: <strong class="text-white">.177 (4.5mm)</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">VEL: <strong class="text-amber-primary">1,020 FPS</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">ENERGY: <strong class="text-tritium">42.5 J</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">SHOTS: <strong class="text-white">85 / FILL</strong></div>
+              </div>
+            </div>
+
+            <!-- Inquire Button -->
+            <button data-wa-model="Meerut Apex PCP Sniper (.177 Cal)" data-phone="8439543244" class="w-full py-3 rounded-xl bg-amber-primary hover:bg-[#ff8533] text-black font-bold text-xs flex items-center justify-center gap-2 transition-all">
+              <span>INQUIRE VIA WHATSAPP</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M7 17l9.2-9.2M17 17V8H8"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2: Tactical CO2 Blowback Pistol -->
+        <div data-catalog-item data-category="pistol" class="double-bezel group">
+          <div class="double-bezel-inner p-6 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <div class="relative rounded-xl overflow-hidden mb-5 bg-black/40 border border-white/5">
+                <img src="assets/tactical-pistol.jpg" alt="Tactical CO2 Blowback Pistol" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-amber-gold text-[10px] font-mono font-bold">
+                  BLOWBACK REPLICA
+                </span>
+              </div>
+              <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">TACTICAL HANDGUN</span>
+              <h3 class="font-display font-bold text-xl text-white mt-1 mb-2">TACTICAL CO2 G-SERIES</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                Full-metal slide with realistic recoil kick, 12g CO2 cartridge mag, red-dot optic cut, and authentic weight balance.
+              </p>
+              
+              <!-- Specs pills -->
+              <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-zinc-300 mb-6">
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">CAL: <strong class="text-white">.177 BB / Pellet</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">VEL: <strong class="text-amber-primary">420 FPS</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">CAPACITY: <strong class="text-white">18 ROUNDS</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">POWER: <strong class="text-tritium">12G CO2</strong></div>
+              </div>
+            </div>
+
+            <!-- Inquire Button -->
+            <button data-wa-model="Tactical CO2 G-Series Blowback Pistol" data-phone="8439543244" class="w-full py-3 rounded-xl bg-amber-primary hover:bg-[#ff8533] text-black font-bold text-xs flex items-center justify-center gap-2 transition-all">
+              <span>INQUIRE VIA WHATSAPP</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M7 17l9.2-9.2M17 17V8H8"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3: 10-Shot Rotary Drum & Match Ammo Kit -->
+        <div data-catalog-item data-category="mag" class="double-bezel group">
+          <div class="double-bezel-inner p-6 flex flex-col justify-between h-full bg-[#0e1117]">
+            <div>
+              <div class="relative rounded-xl overflow-hidden mb-5 bg-black/40 border border-white/5">
+                <img src="assets/rotary-mag.jpg" alt="10-Shot Rotary Magazine Pack" class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md text-amber-primary text-[10px] font-mono font-bold">
+                  HIGH CAPACITY
+                </span>
+              </div>
+              <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">FEED SYSTEM & ACCESSORIES</span>
+              <h3 class="font-display font-bold text-xl text-white mt-1 mb-2">10-SHOT ROTARY DRUM PACK</h3>
+              <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                Precision CNC hard-anodized magazine drum with high-tension indexing ratchet. Universal fit for Precihole, FX, and custom Meerut PCPs.
+              </p>
+              
+              <!-- Specs pills -->
+              <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-zinc-300 mb-6">
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">CAL: <strong class="text-white">.177 (4.5mm)</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">CAPACITY: <strong class="text-amber-primary">10 SHOTS</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">MATERIAL: <strong class="text-white">CNC 6061 T6</strong></div>
+                <div class="p-2 rounded bg-zinc-950/60 border border-white/5">INDEX: <strong class="text-tritium">AUTO SPRING</strong></div>
+              </div>
+            </div>
+
+            <!-- Inquire Button -->
+            <button data-wa-model="10-Shot Rotary Magazine Drum Pack (.177)" data-phone="8439543244" class="w-full py-3 rounded-xl bg-amber-primary hover:bg-[#ff8533] text-black font-bold text-xs flex items-center justify-center gap-2 transition-all">
+              <span>INQUIRE VIA WHATSAPP</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M7 17l9.2-9.2M17 17V8H8"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. INSTAGRAM SHOWCASE & SHOP VERIFICATION -->
+    <section id="instagram" class="py-24 md:py-36 px-4 sm:px-6 max-w-6xl mx-auto reveal-on-scroll">
+      
+      <div class="double-bezel">
+        <div class="double-bezel-inner p-8 sm:p-12 relative overflow-hidden bg-gradient-to-b from-[#11141c] to-[#0a0d13]">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left: Profile Info -->
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5">
+                  <div class="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-display font-extrabold text-2xl text-white">@MEERUTAIRGUN</h3>
+                  <span class="text-xs font-mono text-zinc-400">INSTAGRAM VERIFIED SHOWCASE</span>
+                </div>
+              </div>
+
+              <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                Follow our official channel for weekly sound-test firing videos, unboxing reels of newly arrived PCP stock, chrono velocity verifications, and direct customer dispatch logs.
+              </p>
+
+              <!-- Address & Contacts Card -->
+              <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/5 space-y-2 text-xs font-mono text-zinc-300 mb-8">
+                <div class="flex items-center gap-2">
+                  <span class="text-amber-primary font-bold">LOCATION:</span>
+                  <span>Ganganagar, Meerut (Near IIMT University), UP</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-amber-primary font-bold">CONTACT 1:</span>
+                  <a href="tel:+918439543244" class="hover:underline text-white font-bold">+91 8439543244</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-amber-primary font-bold">CONTACT 2:</span>
+                  <a href="tel:+919286453001" class="hover:underline text-white font-bold">+91 9286453001</a>
+                </div>
+              </div>
+
+              <a href="https://www.instagram.com/meerutairgun" target="_blank" rel="noopener" class="btn-nested bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-bold text-xs shadow-lg">
+                <span>VIEW INSTAGRAM PROFILE</span>
+                <span class="icon-circle bg-white/20 text-white">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17l9.2-9.2M17 17V8H8"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <!-- Right: Curated Reels / Feed Mockup Grid -->
+            <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+              
+              <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/5 hover:border-amber-primary/40 transition-colors">
+                <div class="h-40 rounded-lg overflow-hidden mb-3 bg-zinc-900 relative">
+                  <img src="assets/ammo-pellets.jpg" alt="Match pellets test" class="w-full h-full object-cover">
+                  <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white">REEL • 48K VIEWS</span>
+                </div>
+                <span class="font-display font-semibold text-sm text-white block">CHRONO FPS SPEED TEST</span>
+                <span class="text-[11px] font-mono text-zinc-400">Testing 10.3gr pellets on high-speed sensor.</span>
+              </div>
+
+              <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/5 hover:border-amber-primary/40 transition-colors">
+                <div class="h-40 rounded-lg overflow-hidden mb-3 bg-zinc-900 relative">
+                  <img src="assets/rotary-mag.jpg" alt="Rotary mag loading" class="w-full h-full object-cover">
+                  <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white">REEL • 62K VIEWS</span>
+                </div>
+                <span class="font-display font-semibold text-sm text-white block">ROTARY DRUM SPEED FEED</span>
+                <span class="text-[11px] font-mono text-zinc-400">Rapid fire 10-shot cycle test on target.</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. INDIAN ARMS RULES COMPLIANCE ACCORDION -->
+    <section class="py-16 px-4 sm:px-6 max-w-4xl mx-auto reveal-on-scroll">
+      <div class="p-6 rounded-2xl bg-zinc-950 border border-white/10">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-tritium/10 border border-tritium/30 flex items-center justify-center flex-shrink-0 text-tritium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-lg text-white mb-1">
+              LEGAL CERTIFICATION UNDER INDIAN ARMS ACT (2016 RULES)
+            </h4>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-3">
+              Air guns, air rifles, and air pistols firing .177 caliber (4.5 mm) bore ammunition are completely exempt from arms licensing in India under the Arms Rules, 2016 for target shooting, sports practice, and recreational ownership. Minimum age requirement is 18 years.
+            </p>
+            <div class="flex flex-wrap gap-4 text-[11px] font-mono text-zinc-300">
+              <span>✓ NO POLICE PERMIT NEEDED</span>
+              <span>✓ FULL GST TAX INVOICE INCLUDED</span>
+              <span>✓ SAFE PAN-INDIA HOME DELIVERY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. TACTICAL ACTION FOOTER -->
+    <footer class="border-t border-white/10 bg-zinc-950 py-16 px-4 sm:px-6 mt-20">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-7 h-7 rounded-full bg-amber-primary flex items-center justify-center font-bold text-black text-xs">
+              M
+            </div>
+            <span class="font-display font-extrabold text-xl text-white tracking-wider">MEERUT AIRGUN</span>
+          </div>
+          <p class="text-zinc-400 text-xs font-mono">
+            Ganganagar, Meerut, Uttar Pradesh, India • Phones: 8439543244 / 9286453001
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="flex flex-wrap items-center gap-6 text-xs font-mono text-zinc-400">
+          <a href="#hero" class="hover:text-amber-primary">TOP OF PAGE</a>
+          <a href="#armory" class="hover:text-amber-primary">ARMORY</a>
+          <a href="#simulator" class="hover:text-amber-primary">MAGAZINE LAB</a>
+          <a href="#ballistics" class="hover:text-amber-primary">BALLISTICS</a>
+          <a href="https://wa.me/918439543244" target="_blank" class="text-tritium hover:underline">WHATSAPP ORDER</a>
+        </div>
+
+        <div class="text-xs font-mono text-zinc-500 text-center md:text-right">
+          <span>&copy; 2026 MEERUT AIRGUN SHOWCASE. ALL RIGHTS RESERVED.</span>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script initialization -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: var(--accent);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  
+  --font-sans: 'Archivo', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --bg: #f8f8f8;
+    --fg: #111111;
+    --surface: #ececec;
+    --border: #d4d4d4;
+    --accent: #d04a02;
+    --muted: #666666;
+  }
+
+  .dark {
+    --bg: #0c0c0d;
+    --fg: #f4f4f4;
+    --surface: #1a1a1c;
+    --border: #2a2a2c;
+    --accent: #e8540c;
+    --muted: #999999;
+  }
+  
+  /* We use Lenis for smooth scrolling, so no scroll-behavior smooth here */
+  
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Lenis CSS */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+}
